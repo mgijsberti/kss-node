@@ -591,6 +591,30 @@ handlebars.registerHelper('modifierMarkup', function(modifier) {
 });
 
 /**
+ * Outputs a an unique markup id, if possible. The markup id is the styleguide reference and the class names of
+  the modifier.
+ * @param  {Object} modifier Specify a particular modifier object. Defaults to the current modifier.
+ */
+handlebars.registerHelper('markupId', function(modifier) {
+	modifier = arguments.length < 2 ? this : modifier || this || false;
+
+	if (!modifier) {
+		return false;
+	}
+
+	var fixName = function(str) {
+	    return str.replace(/[#.]/g, '_');
+	}
+
+    //If the modifier does not contain a section (the first modifier) return the reference of the modifier
+    if (!modifier.section || !modifier.section.data) {
+        return fixName(modifier.reference);
+    }
+    //else return the reference id of the styleguide with the class name of the modifier
+    return fixName(modifier.section.data.reference) + fixName(modifier.className);
+});
+
+/**
  * Quickly avoid escaping strings
  * @param  {String} arg The unescaped HTML
  */

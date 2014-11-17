@@ -56,7 +56,7 @@
     }}
     {{#eachSection rootNumber}}
       {{#unlessDepth 1}}
-      <section class="kss-depth-{{ refDepth }}">
+      <section class="kss-depth-{{ refDepth }}" data-id="section-{{reference}}" >
       {{/unlessDepth}}
 
       <h1 class="kss-title"><span class="kss-ref">{{ reference }}{{#ifDepth 1}}.0{{/ifDepth}}</span> - {{ header }}</h1>
@@ -74,7 +74,7 @@
           </tr>
           {{/if}}
           <tr class="kss-mod-example">
-            <td colspan="2">{{modifierMarkup}}</td>
+            <td colspan="2" class=".screenshot" data-id="{{markupId}}" >{{modifierMarkup}}</td>
           </tr>
         {{#eachModifier}}
           <tr class="kss-mod-desc-group">
@@ -82,7 +82,7 @@
             <td class="kss-mod-name"><p>{{name}}</p></td>
           </tr>
           <tr class="kss-mod-example">
-            <td colspan="2">{{modifierMarkup}}</td>
+            <td colspan="2" class=".screenshot" data-id="{{markupId}}" >{{modifierMarkup}}</td>
           </tr>
         {{/eachModifier}}
         </table>
