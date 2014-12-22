@@ -5,7 +5,7 @@
   "version": "1.2.0",
   "repository": {
     "type": "git",
-    "url": "git://github.com/kss-node/kss-node"
+    "url": "git://github.com/kss-node/kss-node.git"
   },
   "licence": "MIT",
   "main": "index.js",
